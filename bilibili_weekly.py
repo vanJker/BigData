@@ -32,7 +32,7 @@ if __name__=='__main__':
     data_folder = './data'
     os.makedirs(data_folder, exist_ok=True)
     # 开始爬虫
-    for i in range(1,218):
+    for i in range(1,265):
         URL = url.format(str(i))
         # 每周数据存储路径
         json_fpath = os.path.join(data_folder,'week_{}.json'.format(str(i)))
