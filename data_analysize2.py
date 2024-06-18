@@ -47,8 +47,8 @@ def transform_data(df):
 
     #对数据进行划分
     (training_data, test_data) = transformed_data.randomSplit([0.8, 0.2], seed=2023)
-    print("训练数据集总数: " + str(training_data.count()))
-    print("测试数据集总数: " + str(test_data.count()))
+    print("训练数据集总数: ".encode('utf-8').decode('latin1') + str(training_data.count()))
+    print("测试数据集总数: ".encode('utf-8').decode('latin1') + str(test_data.count()))
     return transformed_data,training_data,test_data
 
 def corr_matrix(df,cor_save_dir):
