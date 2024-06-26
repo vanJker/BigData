@@ -4,6 +4,8 @@
 
 ## Build
 
+构建环境:
+
 ```bash
 $ neofetch --stdout
 hadoop@Xubuntu 
@@ -27,17 +29,25 @@ GPU: 00:02.0 VMware SVGA II Adapter
 Memory: 2044MiB / 7933MiB 
 ```
 
+构建步骤:
+
 ```bash
+# 爬取数据
 $ python3.11 bilibili_weekly.py
 
+# 数据预处理并上传至 HDFS
 $ python3.11 data_preprocess.py 
 $ /usr/local/hadoop/sbin/start-dfs.sh
 $ hdfs dfs -put /home/hadoop/bd/bilibili_week.txt /user/hadoop
 
+# 分析数据
 $ spark-submit data_analysize1.py 
 $ spark-submit data_analysize2.py 
 
+# 依据分析结果生成网页
 $ python3.11 echarts_show.py
+
+# 打开演示网页站点
 $ open html/index.html
 ```
 
